@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CharactersType } from "../../types/types";
+import { CharactersType } from "../types/types";
 
 const instance = axios.create({
    baseURL: `https://swapi.dev/api/people/`,
