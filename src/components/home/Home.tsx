@@ -1,14 +1,30 @@
-import React from 'react'
-import styles from './Home.module.css'
+import React from "react";
+import styles from "./Home.module.css";
+import background from "../../assets/Yoda.png";
 
 interface Props {}
 
 function Home(props: Props) {
-   const {} = props
+  const {} = props;
 
-   return (
-      <div>Home</div>
-   )
+  return (
+    <div className={styles.Home}>
+      <div>
+        <h1>Find all your favorite character</h1>
+        <div>
+          <h2>
+            You can find out all the information about your favorite characters
+          </h2>
+        </div>
+        <div>
+          <button>See more...</button>
+        </div>
+      </div>
+      <div>
+        <img src={background} alt=""/>
+      </div>
+    </div>
+  );
 }
 
-export default Home
+export default Home;
