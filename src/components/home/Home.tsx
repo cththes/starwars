@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Home.module.css";
 import background from "../../assets/Yoda.png";
+import cloud from "../../assets/Vector.png";
 
 interface Props {}
 
