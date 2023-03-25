@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/starwars/static/css/main.f20388bd.css",
-    "main.js": "/starwars/static/js/main.b99be5cb.js",
+    "main.css": "/starwars/static/css/main.ec0f8892.css",
+    "main.js": "/starwars/static/js/main.b205c975.js",
     "static/js/787.bf75fca3.chunk.js": "/starwars/static/js/787.bf75fca3.chunk.js",
+    "static/media/Yoda.png": "/starwars/static/media/Yoda.9a7f5b66a61a5ecc168f.png",
+    "static/media/Rectangle48.png": "/starwars/static/media/Rectangle48.62e0143c6327e211d042.png",
     "index.html": "/starwars/index.html",
-    "main.f20388bd.css.map": "/starwars/static/css/main.f20388bd.css.map",
-    "main.b99be5cb.js.map": "/starwars/static/js/main.b99be5cb.js.map",
+    "main.ec0f8892.css.map": "/starwars/static/css/main.ec0f8892.css.map",
+    "main.b205c975.js.map": "/starwars/static/js/main.b205c975.js.map",
     "787.bf75fca3.chunk.js.map": "/starwars/static/js/787.bf75fca3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f20388bd.css",
-    "static/js/main.b99be5cb.js"
+    "static/css/main.ec0f8892.css",
+    "static/js/main.b205c975.js"
   ]
 }
