@@ -11,14 +11,14 @@ function Home(props: Props) {
   return (
     <div className={styles.Home}>
       <div>
-        <h1>Find all your favorite character</h1>
+        <h1 className={styles.Home__h1}>Find all your favorite character</h1>
         <div>
-          <h2>
+          <h2 className={styles.Home__h2}>
             You can find out all the information about your favorite characters
           </h2>
         </div>
         <div>
-          <button>See more...</button>
+          <button className={styles.Home__button}>See more...</button>
         </div>
       </div>
       <div>

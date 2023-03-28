@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Characters from "./Characters";
-import { getCharacters } from "../../redux/characters-reducer";
+import { getCharacters, getDropdownShow } from "../../redux/characters-reducer";
 import {
   requestCharacters,
   setCharacters,
@@ -11,6 +11,7 @@ import { CharactersType } from "../../types/types";
 const CharactersContainer = () => {
   const dispatch = useDispatch();
   const CharactersData = useSelector(getCharacters);
+  const dropdownShow = useSelector(getDropdownShow)
 
   useEffect(() => {
     if (CharactersData.length === 0) {
@@ -25,7 +26,7 @@ const CharactersContainer = () => {
     }
   }, [CharactersData.length, dispatch]);
 
-  return <Characters CharactersData={CharactersData} />;
+  return <Characters CharactersData={CharactersData} dropdownShow={dropdownShow}/>;
 };
 
 export default CharactersContainer;
