@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Routes} from "react-router-dom"
 import './App.css';
-import Cards from './components/characters/Characters';
+import CharactersContainer from './components/characters/CharactersContainer';
 import Error404 from './components/error404/Error404';
 import Header from './components/header/Header';
 import Home from './components/home/Home';
@@ -11,8 +11,8 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/cards" element={<Cards />}/>
+        <Route path="/home" element={<Home />}/>
+        <Route path="/characters" element={<CharactersContainer />}/>
         <Route path="/error404" element={<Error404 />}/>
       </Routes>
     </div>

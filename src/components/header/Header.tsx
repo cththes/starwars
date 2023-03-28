@@ -11,8 +11,8 @@ function Header(props: Props) {
    return (
       <div className={styles.Header}>
          <img className={styles.logo} src={logo} alt="logo"/>
-         <NavLink to="/">Home</NavLink>
-         <NavLink to="/cards">Characters</NavLink>
+         <NavLink to="/home">Home</NavLink>
+         <NavLink to="/characters">Characters</NavLink>
       </div>
    )
 }
