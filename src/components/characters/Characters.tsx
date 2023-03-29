@@ -35,6 +35,8 @@ function Characters(props: Props) {
 
   const defaultOption = options[0];
 
+  const onDropdownChange = () => {};
+
   return (
     <div>
       <div>
@@ -45,16 +47,45 @@ function Characters(props: Props) {
           {props.CharactersData.length} Peoples for you to choose your favorite
         </span>
         <Dropdown
+          onChange={onDropdownChange}
           className={styles.dropdown}
           options={options}
           value={defaultOption}
           placeholder="Select an option"
         />
-        ;
       </div>
-      <div>
+      <div className={styles.characters}>
         {CharactersData.map((char) => (
-          <div>{char.name}</div>
+          <div className={styles.characterBlock}>
+            <h3 className={styles.character__h3}>{char.name}</h3>
+            <div className={styles.character__number}>
+              <span className={styles.character__text}>{char.height}</span>
+              <span className={styles.character__text}>{char.mass}</span>
+            </div>
+
+            <div className={styles.character__string}>
+              <span className={styles.character__hair_color}>
+                {char.hair_color !== "n/a" && char.hair_color}
+              </span>
+              <span className={styles.character__skin_color}>
+                {char.skin_color}
+              </span>
+              <span className={styles.character__eye_color}>
+                {char.eye_color}
+              </span>
+              <span className={styles.character__birth_year}>
+                {char.birth_year !== "unknown" && char.birth_year}
+              </span>
+              <span className={styles.character__gender}>
+                {char.gender !== "n/a" && char.gender}
+              </span>
+              {/* <span className={styles.character__homeworld}>{char.homeworld}</span> */}
+              {/* <span className={styles.character__films}>{char.films}</span> */}
+              {/* <span className={styles.character__species}>{char.species}</span> */}
+              {/* <span className={styles.character__vehicles}>{char.vehicles}</span> */}
+              {/* <span className={styles.character__starships}>{char.starships}</span> */}
+            </div>
+          </div>
         ))}
       </div>
     </div>
