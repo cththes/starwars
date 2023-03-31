@@ -8,6 +8,7 @@ const charactersReducer = createSlice({
   initialState: {
     CharactersData: [] as Array<CharactersType>,
     dropdownShow: false,
+    pageSize: 12,
   },
   reducers: {
     setCharacters(state, action) {
@@ -15,6 +16,9 @@ const charactersReducer = createSlice({
     },
     setDropdown(state) {
       state.dropdownShow = !state.dropdownShow
+    },
+    increasePageSizeBy3(state) {
+      state.pageSize += 3
     }
   }
 }
@@ -33,5 +37,9 @@ export const getDropdownShow = (state: AppStateType) => {
   return state.characters.dropdownShow;
 };
 
+export const getPageSize = (state: AppStateType) => {
+  return state.characters.pageSize
+}
+
 export default charactersReducer.reducer;
-export const { setCharacters, setDropdown } = charactersReducer.actions;
+export const { setCharacters, setDropdown, increasePageSizeBy3 } = charactersReducer.actions;

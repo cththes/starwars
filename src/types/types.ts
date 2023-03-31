@@ -16,3 +16,11 @@ export type CharactersType = {
    edited: string
    url: string
 }
+
+export type PhotosType = {
+   albumId: number
+   id: number
+   title: string
+   url: string
+   thumbnailUrl: string
+}

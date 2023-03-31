@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch} from "react-redux";
 import { CharactersType } from "../../types/types";
 import styles from "./Characters.module.css";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 
+
 interface Props {
   CharactersData: Array<CharactersType>;
   dropdownShow: boolean;
+  pageSize: number;
+  increasePageSizeBy3: any
 }
 
 function Characters(props: Props) {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    document.addEventListener("scroll", scrollHandler);
+    return function () {
+      document.removeEventListener("scroll", scrollHandler);
+    };
+  }, []);
+
   if (props.CharactersData.length === 0) return null;
   const { CharactersData } = props;
 
@@ -37,15 +50,34 @@ function Characters(props: Props) {
 
   const onDropdownChange = () => {};
 
+  let CharactersDataWithPagination: CharactersType[] = [];
+
+  let setCharactersDataWithPagination = (min: number, max: number) => {
+    for (let i = min; i < max; i++) {
+      CharactersDataWithPagination[i] = CharactersData[i];
+    }
+  };
+  setCharactersDataWithPagination(0, props.pageSize);
+
+  const scrollHandler = (e: any) => {
+    if (
+      e.target.documentElement.scrollHeight -
+        (e.target.documentElement.scrollTop + window.innerHeight) <
+      100
+    ) {
+      dispatch(props.increasePageSizeBy3)
+    }
+    console.log("scrollHeight", e.target.documentElement.scrollHeight);
+    console.log("scrollTop", e.target.documentElement.scrollTop);
+    console.log("innerHeight", window.innerHeight);
+  };
+
   return (
     <div>
       <div>
         <h1>
-          {props.CharactersData.length} Peoples for you to choose your favorite
+          {props.CharactersData.length} People for you to choose your favorite
         </h1>
-        <span>
-          {props.CharactersData.length} Peoples for you to choose your favorite
-        </span>
         <Dropdown
           onChange={onDropdownChange}
           className={styles.dropdown}
@@ -54,8 +86,9 @@ function Characters(props: Props) {
           placeholder="Select an option"
         />
       </div>
+
       <div className={styles.characters}>
-        {CharactersData.map((char) => (
+        {CharactersDataWithPagination.map((char) => (
           <div className={styles.characterBlock}>
             <h3 className={styles.character__h3}>{char.name}</h3>
             <div className={styles.character__number}>

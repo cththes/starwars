@@ -12,7 +12,7 @@ function Header(props: Props) {
       <div className={styles.Header}>
          <img className={styles.logo} src={logo} alt="logo"/>
          <NavLink to="/home">Home</NavLink>
-         <NavLink to="/characters">Characters</NavLink>
+         <NavLink to="/people">Characters</NavLink>
       </div>
    )
 }
