@@ -1,5 +1,6 @@
 import React from "react";
 import { Table } from "antd";
+import { CharactersType } from "../../types/types";
 
 const columns = [
   {
@@ -36,8 +37,14 @@ const columns = [
   }
 ];
 
-const PeopleTable = ({ people, pagination, loading }) => {
-  const dataSource = people.map((item) => ({
+interface Props {
+  people: any;
+  pagination: any
+  loading: any
+}
+
+const PeopleTable = (props: Props) => {
+  const dataSource = props.people.map((item: CharactersType) => ({
     key: item.name,
     ...item
   }));
@@ -47,8 +54,8 @@ const PeopleTable = ({ people, pagination, loading }) => {
       className="people-table"
       columns={columns}
       dataSource={dataSource}
-      pagination={pagination}
-      loading={loading}
+      pagination={props.pagination}
+      loading={props.loading}
     />
   );
 };

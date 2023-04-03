@@ -9,20 +9,25 @@ export const GENDER = {
   NA: "n/a"
 };
 
+interface Props {
+  gender: string;
+  setGender: any
+}
+
 const genderOptions = Object.values(GENDER).map((item) => ({
   value: item,
   label: item.charAt(0).toUpperCase() + item.slice(1)
 }));
 
-const PeopleFilters = ({ gender, setGender }) => {
+const PeopleFilters = (props: Props ) => {
   return (
     <div className="people-filters">
       <span>Gender: </span>
       <Select
         defaultValue={GENDER.ALL}
         options={genderOptions}
-        value={gender}
-        onChange={setGender}
+        value={props.gender}
+        onChange={props.setGender}
         className="gender-filter"
       />
     </div>

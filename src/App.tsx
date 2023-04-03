@@ -7,7 +7,6 @@ import Error404 from "./components/error404/Error404";
 import Header from "./components/header/Header";
 import Home from "./components/home/Home";
 import People from "./components/people/People";
-import Ulbitest from "./components/ulbitest/ulbitest";
 
 function App() {
   return (
@@ -17,7 +16,6 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/characters" element={<CharactersContainer />} />
         <Route path="/error404" element={<Error404 />} />
-        <Route path="/test" element={<Ulbitest />} />
         <Route path="/people" element={<People />} />
       </Routes>
     </div>

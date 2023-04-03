@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import PeopleFilters, { GENDER } from "./PeopleFilters";
 import PeopleTable from "./PeopleTable";
 import { getPeople } from "./utils";
+import { CharactersType } from "../../types/types";
 
 const People = () => {
   const [people, setPeople] = useState([]);
@@ -11,7 +12,7 @@ const People = () => {
   useEffect(() => {
     setLoading(true);
     getPeople()
-      .then((data) => {
+      .then((data: any) => {
         setPeople(data);
       })
       .finally(() => {
@@ -21,7 +22,7 @@ const People = () => {
 
   let filteredPeople = people;
   if (gender !== GENDER.ALL) {
-    filteredPeople = people.filter((item) => item.gender === gender);
+    filteredPeople = people.filter((item: CharactersType) => item.gender === gender);
   }
 
   const pagination = {
