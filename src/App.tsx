@@ -11,12 +11,11 @@ import People from "./components/people/People";
 function App() {
   return (
     <div className="App">
-      <Header />
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/characters" element={<CharactersContainer />} />
-        <Route path="/error404" element={<Error404 />} />
         <Route path="/people" element={<People />} />
+        <Route path="/*" element={<Error404 />} />
       </Routes>
     </div>
   );

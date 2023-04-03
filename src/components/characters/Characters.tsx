@@ -75,7 +75,7 @@ function Characters(props: Props) {
   return (
     <div>
       <div>
-        <h1>
+        <h1 className={styles.characters__h1}>
           {props.CharactersData.length} People for you to choose your favorite
         </h1>
         <Dropdown

@@ -3,6 +3,7 @@ import PeopleFilters, { GENDER } from "./PeopleFilters";
 import PeopleTable from "./PeopleTable";
 import { getPeople } from "./utils";
 import { CharactersType } from "../../types/types";
+import Header from "../header/Header";
 
 const People = () => {
   const [people, setPeople] = useState([]);
@@ -22,23 +23,28 @@ const People = () => {
 
   let filteredPeople = people;
   if (gender !== GENDER.ALL) {
-    filteredPeople = people.filter((item: CharactersType) => item.gender === gender);
+    filteredPeople = people.filter(
+      (item: CharactersType) => item.gender === gender
+    );
   }
 
   const pagination = {
     showSizeChanger: false,
-    total: filteredPeople.length
+    total: filteredPeople.length,
   };
 
   return (
-    <div className="people">
-      <h3>People</h3>
-      <PeopleFilters gender={gender} setGender={setGender} />
-      <PeopleTable
-        people={filteredPeople}
-        pagination={pagination}
-        loading={loading}
-      />
+    <div>
+      <Header />
+      <div className="people">
+        <h3>People</h3>
+        <PeopleFilters gender={gender} setGender={setGender} />
+        <PeopleTable
+          people={filteredPeople}
+          pagination={pagination}
+          loading={loading}
+        />
+      </div>
     </div>
   );
 };
