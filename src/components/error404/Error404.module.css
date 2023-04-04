@@ -4,24 +4,23 @@
 }
 
 .error__h1{
+   position: absolute;
+   top:-10%;
+   left: 24%;
    height:85vh;
    margin-top:auto;
-   margin-right: auto;
    margin-bottom: 0px;
-   margin-left: 22vw;
    font-family: 'Karla';
    font-style: normal;
    font-weight: 700;
    font-size: 32vw;
    line-height: 818px;
-   display: flex;
-   align-items: center;
    letter-spacing: 4px;
    color: rgba(255, 255, 255, 0.5);
 }
 
 .error_img {
-   position: absolute;
-   top: 0;
-   width: 50%;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
 }

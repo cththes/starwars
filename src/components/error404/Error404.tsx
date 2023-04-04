@@ -10,8 +10,10 @@ function Error404(props: Props) {
   return (
     <div className={styles.main}>
       <div className={styles.container}>
-        <h1 className={styles.error__h1}>404</h1>
-        <img src={logo} className={styles.error_img} />
+        <img src={logo} className={styles.error_img} alt=""/>
+        <h1 className={styles.error__h1}>
+          404
+        </h1>
       </div>
     </div>
   );
