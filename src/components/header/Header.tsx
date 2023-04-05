@@ -16,7 +16,7 @@ function Header(props: Props) {
         </div>
         <div>
           <NavLink to="/home">Home</NavLink>
-          <NavLink to="/people">Characters</NavLink>
+          <NavLink to="/characters">Characters</NavLink>
         </div>
       </div>
     </div>

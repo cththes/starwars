@@ -1,44 +1,65 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Characters from "./Characters";
 import {
   getCharacters,
   getDropdownShow,
   getPageSize,
-  increasePageSizeBy3
+  increasePageSizeBy3,
 } from "../../redux/characters-reducer";
 import {
   requestCharacters,
   setCharacters,
 } from "../../redux/characters-reducer";
 import { CharactersType } from "../../types/types";
+import CharactersFilters, { GENDER } from "./CharactersFilters";
+import { getPeople } from "./utils";
+import Header from "../header/Header";
 
 const CharactersContainer = () => {
   const dispatch = useDispatch();
-  const CharactersData = useSelector(getCharacters);
-  const dropdownShow = useSelector(getDropdownShow);
+  // const CharactersData = useSelector(getCharacters);
   const pageSize = useSelector(getPageSize);
 
-  useEffect(() => {
-    if (CharactersData.length === 0) {
-      requestCharacters().then((responses) => {
-        let results: Array<CharactersType> = [];
+  const [people, setPeople] = useState([]);
+  const [gender, setGender] = useState(GENDER.ALL);
+  const [loading, setLoading] = useState(false);
 
-        responses.forEach((page) => {
-          results = [...results, ...page.data.results];
-        });
-        dispatch(setCharacters(results));
+  useEffect(() => {
+    setLoading(true);
+    getPeople()
+      .then((data: any) => {
+        setPeople(data);
+      })
+      .finally(() => {
+        setLoading(false);
       });
-    }
-  }, [CharactersData.length, dispatch]);
+  }, []);
+
+  let filteredPeople = people;
+  if (gender !== GENDER.ALL) {
+    filteredPeople = people.filter(
+      (item: CharactersType) => item.gender === gender
+    );
+  }
+
+  const pagination = {
+    showSizeChanger: false,
+    total: filteredPeople.length,
+  };
 
   return (
-    <Characters
-      CharactersData={CharactersData}
-      dropdownShow={dropdownShow}
-      pageSize={pageSize}
-      increasePageSizeBy3={increasePageSizeBy3}
-    />
+    <div>
+      <Header />
+      <CharactersFilters gender={gender} setGender={setGender} />
+      <Characters
+        CharactersData={filteredPeople}
+        pagination={pagination}
+        loading={loading}
+        pageSize={pageSize}
+        increasePageSizeBy3={increasePageSizeBy3}
+      />
+    </div>
   );
 };
 
