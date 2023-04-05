@@ -5,7 +5,7 @@ a {
    font-size: 25px;
    line-height: 29px;
    margin-left: 2.86%;
-   margin-right: 1.43%;
+   margin-right: 35px;
    text-decoration: none;
 
    /* grey */
@@ -26,7 +26,17 @@ a:focus {
    height:105px;
    background: #1F2A63;
    box-shadow: 0px 4px 16px rgba(1, 28, 64, 0.2);
+   filter: drop-shadow(0px 4px 4px rgba(255, 255, 255, 0.25));
+}
+
+.container {
+   display: flex;
    padding-left:157px;
+   align-items: center;
+}
+
+.logo__container{
+   width: 70%;
 }
 
 .logo{
@@ -34,3 +44,4 @@ a:focus {
    width: 150px;
    height: 90px;
 }
+
