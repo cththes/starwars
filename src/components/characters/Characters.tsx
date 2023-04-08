@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CharactersType } from "../../types/types";
 import styles from "./Characters.module.css";
 import "react-dropdown/style.css";
-import { Modal, Pagination, PaginationProps } from "antd";
+import { Modal, Pagination, PaginationProps, Button } from "antd";
 
 interface Props {
   CharactersData: Array<CharactersType>;
@@ -13,6 +13,20 @@ interface Props {
 
 function Characters(props: Props) {
   const [page, setPage] = useState(1);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
   if (props.CharactersData.length === 0) return null;
   const { CharactersData } = props;
 
@@ -37,8 +51,8 @@ function Characters(props: Props) {
   ];
 
   const CharactersDataPage = [];
-  let min = (page - 1) * 9
-  let max = (page - 1) * 9
+  let min = (page - 1) * 9;
+  let max = (page - 1) * 9;
 
   for (let i = 0 + min; i < 9 + max; i++) {
     CharactersDataPage[i] = props.CharactersData[i];
@@ -52,12 +66,21 @@ function Characters(props: Props) {
         </h1>
       </div>
       <div>
-        <Modal />
+        <Modal
+          title="Basic Modal"
+          open={isModalOpen}
+          onOk={handleOk}
+          onCancel={handleCancel}
+        >
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </Modal>
       </div>
 
       <div className={styles.characters}>
         {CharactersDataPage.map((item: CharactersType) => (
-          <div className={styles.characterBlock}>
+          <div className={styles.characterBlock} onClick={showModal}>
             <h3 className={styles.character__h3}>{item.name}</h3>
             <div className={styles.character__number}>
               <span className={styles.character__text}>{item.height}</span>
