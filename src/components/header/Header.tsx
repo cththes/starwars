@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Header.module.css";
 import logo from "../../assets/Rectangle48.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, Navigate } from "react-router-dom";
 
 interface Props {}
 
@@ -17,6 +17,7 @@ function Header(props: Props) {
         <div>
           <NavLink to="/home">Home</NavLink>
           <NavLink to="/characters">Characters</NavLink>
+          
         </div>
       </div>
     </div>

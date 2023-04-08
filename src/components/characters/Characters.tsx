@@ -1,19 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { CharactersType } from "../../types/types";
 import styles from "./Characters.module.css";
 import "react-dropdown/style.css";
-
+import { Modal, Pagination, PaginationProps } from "antd";
 
 interface Props {
   CharactersData: Array<CharactersType>;
   pageSize: number;
-  increasePageSizeBy3: any
-  pagination: any
-  loading: any
+  increasePageSizeBy3: any;
+  loading: any;
 }
 
 function Characters(props: Props) {
-
+  const [page, setPage] = useState(1);
   if (props.CharactersData.length === 0) return null;
   const { CharactersData } = props;
 
@@ -37,6 +36,14 @@ function Characters(props: Props) {
     "url",
   ];
 
+  const CharactersDataPage = [];
+  let min = (page - 1) * 9
+  let max = (page - 1) * 9
+
+  for (let i = 0 + min; i < 9 + max; i++) {
+    CharactersDataPage[i] = props.CharactersData[i];
+  }
+
   return (
     <div>
       <div>
@@ -44,9 +51,12 @@ function Characters(props: Props) {
           {props.CharactersData.length} People for you to choose your favorite
         </h1>
       </div>
+      <div>
+        <Modal />
+      </div>
 
       <div className={styles.characters}>
-        {props.CharactersData.map((item: CharactersType) => (
+        {CharactersDataPage.map((item: CharactersType) => (
           <div className={styles.characterBlock}>
             <h3 className={styles.character__h3}>{item.name}</h3>
             <div className={styles.character__number}>
@@ -78,6 +88,16 @@ function Characters(props: Props) {
             </div>
           </div>
         ))}
+      </div>
+      <div>
+        <Pagination
+          showSizeChanger={false}
+          defaultCurrent={1}
+          total={props.CharactersData.length}
+          showQuickJumper={false}
+          current={page}
+          onChange={(page) => setPage(page)}
+        />
       </div>
     </div>
   );

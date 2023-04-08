@@ -10,6 +10,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/home" element={<Home />} />
+        <Route path="/starwars" element={<Home />} />
         <Route path="/characters" element={<CharactersContainer />} />
         <Route path="/*" element={<Error404 />} />
       </Routes>

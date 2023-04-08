@@ -3,13 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Characters from "./Characters";
 import {
   getCharacters,
-  getDropdownShow,
   getPageSize,
   increasePageSizeBy3,
-} from "../../redux/characters-reducer";
-import {
-  requestCharacters,
-  setCharacters,
 } from "../../redux/characters-reducer";
 import { CharactersType } from "../../types/types";
 import CharactersFilters, { GENDER } from "./CharactersFilters";
@@ -43,18 +38,12 @@ const CharactersContainer = () => {
     );
   }
 
-  const pagination = {
-    showSizeChanger: false,
-    total: filteredPeople.length,
-  };
-
   return (
     <div>
       <Header />
       <CharactersFilters gender={gender} setGender={setGender} />
       <Characters
         CharactersData={filteredPeople}
-        pagination={pagination}
         loading={loading}
         pageSize={pageSize}
         increasePageSizeBy3={increasePageSizeBy3}

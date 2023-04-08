@@ -1,0 +1,129 @@
+.characters__h1 {
+   font-family: 'Karla';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 35px;
+   line-height: 41px;
+   text-align: center;
+   letter-spacing: 3px;
+
+   color: #000000;
+
+   border: 1px solid #000000;
+   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.dropdown {
+   width: 135px;
+}
+
+.characters{
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+}
+
+.characterBlock {
+   background: #F0F0F0;
+   border-radius: 8px;
+   /* transform: rotate(-180deg); */
+   width: 352px;
+   height: 137px;
+   margin-top: 20px;
+}
+
+.character__h3 {
+   font-family: 'Karla';
+   font-style: normal;
+   font-weight: 700;
+   font-size: 18px;
+   line-height: 21px;
+
+   /* Pharagraph */
+
+   color: #212121;
+
+   /* blur card */
+
+   text-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
+}
+
+.character__text {
+   font-family: 'Karla';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 15px;
+   line-height: 18px;
+   /* identical to box height */
+
+   display: flex;
+   align-items: center;
+   text-align: center;
+
+   color: #212121;
+
+   margin-right: 5px;
+}
+
+.character__number {
+   display: flex;
+}
+
+.character__string {
+   display: flex;
+}
+
+.character__hair_color {
+   margin-right: 5px;
+}
+
+.character__skin_color {
+   margin-right: 5px;
+}
+
+.character__eye_color {
+   margin-right: 5px;
+}
+
+.character__birth_year {
+   margin-right: 5px;
+}
+
+.character__gender {
+   margin-right: 5px;
+}
+
+.character__homeworld{
+   margin-right: 5px;
+}
+
+.character__films{
+   margin-right: 5px;
+}
+
+.character__species{
+   margin-right: 5px;
+}
+
+.character__vehicles{
+   margin-right: 5px;
+}
+
+.character__starships{
+   margin-right: 5px;
+}
+
+.pages{
+   margin: 20px 0;
+   .page, .current_page{
+      border: 1px solid lightgray;
+      border-radius: 100%;
+      padding: 5px 10px;
+      margin: 0 10px;
+      cursor: pointer;
+   }
+   
+   .current_page {
+      border: 2px solid gray;
+      font-weight: 700;
+   }
+}
